@@ -1,7 +1,12 @@
 package org.retrofit.help;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -11,7 +16,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+		
+//		Reader reader = new InputStreamReader(App.class.getResourceAsStream("/data.json"), "UTF-8");
+//        Gson gson = new GsonBuilder().create();
+//        Repo p = gson.fromJson(reader, Repo.class);
+//        
+//        System.err.println(p.getAvatarUrl());
+        
+		
+		
+		
 		//01:获取Retrofit对象
 		Retrofit retrofit = new Retrofit.Builder()  
 				//02采用链式结构绑定Base url
@@ -49,7 +64,7 @@ public class App {
 
 	private static void printRepoInfo(List<Repo> repoList) {
 		for(Repo repo : repoList){
-			System.out.println(repo.getHtmlUrl());
+			System.out.println(repo.getUrl());
 		}
 		
 		System.out.println(repoList.size());
