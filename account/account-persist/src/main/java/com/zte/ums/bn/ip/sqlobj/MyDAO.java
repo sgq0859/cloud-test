@@ -9,6 +9,9 @@ public interface MyDAO {
 	
 	@SqlUpdate("create table something (id int primary key, name varchar(100))")
 	void createSomethingTable();
+	
+	@SqlUpdate("drop table something")
+	void deleteSomethingTable();
 
 	@SqlUpdate("insert into something (id, name) values (:id, :name)")
 	void insert(@Bind("id") int id, @Bind("name") String name);
